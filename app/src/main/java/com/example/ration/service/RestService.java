@@ -15,7 +15,7 @@ import java.util.Map;
 
 public class RestService {
 
-    public static final String URL = "https://api.weatherapi.com/v1/current.json?key=c9dd91bd98c644f4851173437221705&q=London&aqi=no";//"localhost8075/ration";
+    public static final String URL = "http://localhost:8075/ration";
 
     public Map<Week, Map<RecipeType, NormalRecipe>> getRecipes(User user, Context context) {
 
