@@ -16,15 +16,11 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Getter
 public enum Gender {
-    MALE("male"),
-    FEMALE("female");
-    private final String buttonName;
+    MALE,
+    FEMALE;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public static Gender getGender(String gender) {
-        return Arrays.stream(Gender.values())
-                .filter(g -> Objects.equals(gender, g.buttonName))
-                .findFirst()
-                .get();
+        return Gender.valueOf(gender.toUpperCase());
     }
 }

@@ -8,7 +8,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.ration.model.NormalRecipe;
 import com.example.ration.model.RecipeType;
-import com.example.ration.model.User;
+import com.example.ration.model.UserData;
 import com.example.ration.model.Week;
 
 import java.util.Map;
@@ -17,7 +17,7 @@ public class RestService {
 
     public static final String URL = "http://localhost:8075/ration";
 
-    public Map<Week, Map<RecipeType, NormalRecipe>> getRecipes(User user, Context context) {
+    public Map<Week, Map<RecipeType, NormalRecipe>> getRecipes(UserData userData, Context context) {
 
         RequestQueue requestQueue = Volley.newRequestQueue(context);
 

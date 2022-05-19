@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.10847628657921292" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_ration.xml" value="0.22061462402343748" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_ration.xml" value="0.23847522323937728" />
+        <entry key="app/src/main/res/layout/activity_week_product_list.xml" value="0.18659420289855072" />
+        <entry key="app/src/main/res/layout/activity_week_ration.xml" value="0.1559600830078125" />
       </map>
     </option>
   </component>

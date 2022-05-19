@@ -13,6 +13,8 @@ import java.util.Map;
 public class NormalRecipe implements Serializable {
     private String name;
 
+    private String encodedView;
+
     private String description;
 
     private Map<String, Integer> products;
