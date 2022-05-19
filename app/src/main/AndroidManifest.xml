@@ -17,16 +17,19 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".WeekProductList"
+            android:name=".UserInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".WeekRation"
+            android:name=".WeekProductList"
             android:exported="false" />
         <activity
             android:name=".RationActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StartActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

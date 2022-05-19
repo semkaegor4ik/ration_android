@@ -4,159 +4,150 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/background">
+    android:background="@drawable/background"
+    tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/registration"
+    <include layout="@layout/toolbar" />
+
+    <Button
+        android:id="@+id/generateRationButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Registration"
-        android:textColor="@color/white"
-        android:textSize="50dp"
-        android:textStyle="bold"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginTop="70dp"
         android:gravity="center"
-        android:layout_margin="50dp"
+        android:text="Сгенерировать рацион"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-
-    <EditText
-        android:id="@+id/name"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="70dp"
-        android:layout_marginTop="80dp"
-        android:gravity="center"
-        android:hint="name"
-        android:textColorHint="@color/white"
-        android:textColor="@color/white"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="70dp" />
-
     <RadioGroup
-        android:id="@+id/gender"
+        android:id="@+id/weeks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="100dp"
-        app:layout_constraintTop_toBottomOf="@+id/name"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="200dp"
+        app:layout_constraintTop_toBottomOf="@+id/generateRationButton">
 
         <RadioButton
-            android:id="@+id/female"
+            android:id="@+id/monday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="female"
-            android:textColor="@color/white"
+            android:text="понедельник"
+            android:textColor="@color/black"
             android:textSize="20dp" />
 
         <RadioButton
-            android:id="@+id/male"
+            android:id="@+id/tuesday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="male"
-            android:textColor="@color/white"
+            android:text="вторник"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/wednesday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="среда"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/thursday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="четверг"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/friday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="пятница"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/saturday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="суббота"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/sunday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="воскресенье"
+            android:textColor="@color/black"
             android:textSize="20dp" />
     </RadioGroup>
 
-    <EditText
-        android:id="@+id/weight"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        android:ems="10"
-        android:gravity="center"
-        android:layout_marginHorizontal="70dp"
-        android:hint="weight"
-        android:inputType="number"
-        android:textColorHint="@color/white"
-        android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/gender" />
-
-    <EditText
-        android:id="@+id/height"
-        android:hint="height"
-        android:textColorHint="@color/white"
-        android:textColor="@color/white"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="70dp"
-        android:ems="10"
-        android:gravity="center"
-        android:inputType="number"
-        app:layout_constraintTop_toBottomOf="@+id/weight" />
-
-    <EditText
-        android:id="@+id/age"
-        android:hint="age"
-        android:textColorHint="@color/white"
-        android:textColor="@color/white"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="70dp"
-        android:ems="10"
-        android:gravity="center"
-        android:inputType="number"
-        app:layout_constraintTop_toBottomOf="@+id/height"/>
-
     <RadioGroup
-        android:id="@+id/activity"
+        android:id="@+id/meal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="100dp"
-        app:layout_constraintTop_toBottomOf="@+id/age">
+        android:layout_marginLeft="230dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/generateRationButton">
 
         <RadioButton
-            android:id="@+id/min"
+            android:id="@+id/breakfast"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="minimum"
-            android:textColor="@color/white"
+            android:text="завтрак"
+            android:textColor="@color/black"
             android:textSize="20dp" />
 
         <RadioButton
-            android:id="@+id/low"
+            android:id="@+id/lunch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="low"
-            android:textColor="@color/white"
+            android:text="обед"
+            android:textColor="@color/black"
             android:textSize="20dp" />
 
         <RadioButton
-            android:id="@+id/average"
+            android:id="@+id/dinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="normal"
-            android:textColor="@color/white"
-            android:textSize="20dp" />
-
-        <RadioButton
-            android:id="@+id/high"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="high"
-            android:textColor="@color/white"
-            android:textSize="20dp" />
-
-        <RadioButton
-            android:id="@+id/extra"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="extra"
-            android:textColor="@color/white"
+            android:text="ужин"
+            android:textColor="@color/black"
             android:textSize="20dp" />
     </RadioGroup>
 
     <Button
-        android:id="@+id/registerButton"
+        android:id="@+id/getWeekReceipsButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Register"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginTop="20dp"
         android:gravity="center"
-        android:layout_margin="60dp"
-        app:layout_constraintTop_toBottomOf="@+id/activity"/>
+        android:text="Получить рецепт"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/weeks"
+        tools:ignore="MissingConstraints" />
 
-
-
+    <Button
+        android:id="@+id/getProductListButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="Получить список продуктов"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/getWeekReceipsButton"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

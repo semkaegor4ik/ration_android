@@ -13,11 +13,11 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum Activity {
-    MINIMUM("minimum"),
-    LOW("low"),
-    NORMAL("normal"),
-    HIGH("high"),
-    EXTRA("extra");
+    MINIMUM("минимальная"),
+    LOW("низкая"),
+    NORMAL("средняя"),
+    HIGH("выше среднего"),
+    EXTRA("высокая");
 
     private final String buttonName;
 

@@ -6,7 +6,6 @@ import lombok.Data;
 
 @Data
 public class UserData implements Serializable {
-    private final String name;
     private final int weight;
     private final int height;
     private final int age;

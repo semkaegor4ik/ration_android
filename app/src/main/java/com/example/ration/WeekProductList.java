@@ -3,11 +3,11 @@ package com.example.ration;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.example.ration.model.NormalRecipe;
 import com.example.ration.util.RationUtil;
 
 import java.util.HashMap;
@@ -25,5 +25,7 @@ public class WeekProductList extends AppCompatActivity {
         HashMap<String, Integer> list = (HashMap<String, Integer>) getIntent().getSerializableExtra("productList");
 
         productList.setText(RationUtil.getProductsText(list));
+
+        findViewById(R.id.person).setOnClickListener(v -> startActivity(new Intent(this, UserInfoActivity.class)));
     }
 }

@@ -10,7 +10,7 @@ import java.util.Map;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class NormalRecipe implements Serializable {
+public class Recipe implements Serializable {
     private String name;
 
     private String encodedView;

@@ -1,8 +1,6 @@
 package com.example.ration.model;
 
 import android.os.Build;
-import android.os.Parcel;
-import android.os.Parcelable;
 
 import androidx.annotation.RequiresApi;
 
@@ -16,11 +14,15 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Getter
 public enum Gender {
-    MALE,
-    FEMALE;
+    MALE("мужчина"),
+    FEMALE("женщина");
+    private final String buttonName;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public static Gender getGender(String gender) {
-        return Gender.valueOf(gender.toUpperCase());
+        return Arrays.stream(Gender.values())
+                .filter(g -> Objects.equals(g.getButtonName(), gender))
+                .findFirst()
+                .get();
     }
 }
