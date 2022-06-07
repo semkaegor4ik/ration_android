@@ -1,6 +1,5 @@
 package com.example.ration;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
@@ -14,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ration.model.Recipe;
 import com.example.ration.util.RationUtil;
+
+import java.util.Collections;
 
 public class RationActivity extends AppCompatActivity {
 
@@ -40,6 +41,6 @@ public class RationActivity extends AppCompatActivity {
         productsText.setText(RationUtil.getProductsText(recipe.getProducts()));
 
 
-        findViewById(R.id.person).setOnClickListener(v -> startActivity(new Intent(this, UserInfoActivity.class)));
+        findViewById(R.id.person).setOnClickListener(v -> RationUtil.createNewActivity(Collections.EMPTY_MAP, this, UserInfoActivity.class));
     }
 }

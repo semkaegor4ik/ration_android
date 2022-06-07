@@ -2,7 +2,6 @@ package com.example.ration;
 
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
@@ -12,12 +11,15 @@ import android.widget.RadioGroup;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.ration.model.Recipe;
 import com.example.ration.model.RecipeType;
 import com.example.ration.model.UserData;
 import com.example.ration.model.Week;
+import com.example.ration.util.RationUtil;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -28,10 +30,12 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
+    private final String URL = "localhost:8080/ration";
     private final Map<Week, Map<RecipeType, Recipe>> recipes = new HashMap<>();
     private static final String FILE_NAME = "recipes.ser";
 
@@ -70,11 +74,7 @@ public class MainActivity extends AppCompatActivity {
         getRecipesButton.setOnClickListener(v -> {
             Recipe recipe = recipes.get(Week.getWeek(((RadioButton) findViewById(weekRadioGroup.getCheckedRadioButtonId())).getText().toString()))
                     .get(RecipeType.getRecipeType((((RadioButton) findViewById(mealRadioGroup.getCheckedRadioButtonId())).getText().toString())));
-
-            Intent intent = new Intent(this, RationActivity.class);
-            intent.putExtra("recipe", recipe);
-
-            startActivity(intent);
+            RationUtil.createNewActivity(Map.of("recipe", recipe), this, RationActivity.class);
         });
 
         getProductListButton.setOnClickListener(v -> {
@@ -92,20 +92,14 @@ public class MainActivity extends AppCompatActivity {
                             list.put(entry.getKey(), list.get(entry.getKey()) + entry.getValue());
                         }
                     });
-
-            Intent intent = new Intent(this, WeekProductList.class);
-            intent.putExtra("productList", list);
-
-            startActivity(intent);
+            RationUtil.createNewActivity(Map.of("productList", list), this, WeekProductList.class);
         });
 
-        findViewById(R.id.person).setOnClickListener(v -> startActivity(new Intent(this, UserInfoActivity.class)));
+        findViewById(R.id.person).setOnClickListener(v -> RationUtil.createNewActivity(Collections.EMPTY_MAP, this, UserInfoActivity.class));
     }
-
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void serializeAndSave(JSONObject readValue) {
-
         ObjectMapper objectMapper = new ObjectMapper();
         TypeReference<HashMap<Week, Map<RecipeType, Recipe>>> typeRef = new TypeReference<>() {
         };

@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.ration.model.Activity;
 import com.example.ration.model.Gender;
 import com.example.ration.model.UserData;
+import com.example.ration.util.RationUtil;
 
 import java.io.File;
 import java.io.ObjectInputStream;
@@ -51,7 +52,7 @@ public class UserInfoActivity extends AppCompatActivity {
 
         try (ObjectInputStream os = new ObjectInputStream(this.openFileInput(FILE_NAME))) {
             userData = (UserData) os.readObject();
-            createNewActivity();
+            RationUtil.createNewActivity(Map.of("user", userData), this, MainActivity.class);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -83,18 +84,10 @@ public class UserInfoActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-                createNewActivity();
+                RationUtil.createNewActivity(Map.of("user", userData), this, MainActivity.class);
             } catch (Exception e) {
                 Toast.makeText(this, "были введены некорректные данные", Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    private void createNewActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra("user", userData);
-
-        startActivity(intent);
     }
 }
